@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送ajax POST请求</title>
+</head>
+<body>
+用户名：<input type="text" id="username"><br>
+密码：<input type="password" id="password">
+<br>
+<button id="btn">发送AJAX POST请求</button>
+
+<div></div>
+
+<script>
+    window.onload = function () {
+        document.querySelector('#btn').addEventListener('click', function () {
+            // 发送AJAX POST请求
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            xmlHttpRequest.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        // 成功
+                        document.querySelector('div').innerText = this.responseText
+                    } else {
+                        alert(this.status)
+                    }
+                }
+            }
+            xmlHttpRequest.open('post', '/ajax/ajaxrequest4', true)
+
+
+            let username = document.querySelector('#username').value
+            let password = document.querySelector('#password').value
+            /*
+            以请求体的方式提交数据
+
+            发送 AJAX POST 请求时，并不“强制”要求设置请求头中的 Content-Type，但为了后端能正确解析数据，通常必须手动设置。
+            为什么需要设置 Content-Type？
+                当你使用 XMLHttpRequest.send() 发送 POST 请求体（body）时，默认情况下浏览器不会自动为你设置合适的 Content-Type 请求头。
+                    常见的 Content-Type 类型有：
+                        application/x-www-form-urlencoded：表单提交的标准格式（键值对），适用于大多数后端框架（如 Spring MVC、Servlet 等）
+                        application/json：发送 JSON 数据
+                        multipart/form-data：文件上传时使用（浏览器会自动设置）
+            否则：
+                后端可能无法正确解析你发送的数据；
+
+            要在open()方法之后才行
+            */
+            xmlHttpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xmlHttpRequest.send("username=" + username + "&password=" + password)
+        })
+    }
+</script>
+</body>
+</html>

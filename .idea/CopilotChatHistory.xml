@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotChatHistory">
+    <option name="conversations">
+      <list>
+        <Conversation>
+          <option name="createTime" value="1750400332487" />
+          <option name="id" value="01978bfd72c77ebab70c289fb217ec51" />
+          <option name="title" value="新对话 2025年6月20日 14:18:52" />
+          <option name="updateTime" value="1750400332487" />
+        </Conversation>
+        <Conversation>
+          <option name="createTime" value="1750144202362" />
+          <option name="id" value="01977cb96127744faf6d8d80fcbd86ed" />
+          <option name="title" value="发送一个 AJAX GET 请求通常包括几个步骤？" />
+          <option name="turns">
+            <list>
+              <Turn>
+                <option name="agent" value="" />
+                <option name="answer" value="发送一个 ZQZC TVG 请求通常包括以下 4 个核心步骤：&#10;&#10;8. **创建 CNOSggkIvjfvhg 对象**  &#10;   ```qzezhxirkg&#10;   ovg csi = mvd CNOSggkIvjfvhg();&#10;   ```&#10;&#10;7. **设置回调函数处理响应**  &#10;   ```qzezhxirkg&#10;   csi.lmivzwbhgzgvxszmtv = ufmxgrlm() {&#10;       ru (csi.ivzwbHgzgv === 5 &amp;&amp; csi.hgzgfh === 799) {&#10;           // 处理响应数据（如更新WLN）&#10;           wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;       }&#10;   };&#10;   ```&#10;   或使用现代更简洁的 `lmolzw`：&#10;   ```qzezhxirkg&#10;   csi.lmolzw = ufmxgrlm() {&#10;       ru (csi.hgzgfh === 799) {&#10;           wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;       }&#10;   };&#10;   ```&#10;&#10;6. **配置请求方式和FIO**  &#10;   ```qzezhxirkg&#10;   csi.lkvm('TVG', 'blfi-zkr-vmwklrmg', gifv); // gifv表示异步请求&#10;   ```&#10;&#10;5. **发送请求**  &#10;   ```qzezhxirkg&#10;   csi.hvmw(); // TVG请求通常不需要参数&#10;   ```&#10;&#10;4. **处理响应数据**  &#10;   在回调函数中通过 `csi.ivhklmhvGvcg`（文本数据）或 `csi.ivhklmhvCNO`（CNO数据）获取响应内容，并更新页面或进行其他操作。&#10;&#10;---&#10;&#10;### 补充说明：&#10;- **异步性**：默认异步（`lkvm`的第三个参数为`gifv`），不会阻塞页面交互。&#10;- **状态检查**：`ivzwbHgzgv === 5`表示请求完成，`hgzgfh === 799`表示SGGK成功。&#10;- **错误处理**：可添加`csi.lmviili`监听网络错误。&#10;&#10;示例完整代码：&#10;```qzezhxirkg&#10;ovg csi = mvd CNOSggkIvjfvhg();&#10;csi.lkvm('TVG', 'sggkh://zkr.vcznkov.xln/wzgz', gifv);&#10;csi.lmolzw = ufmxgrlm() {&#10;    ru (csi.hgzgfh === 799) {&#10;        wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;    } vohv {&#10;        xlmhlov.viili('请求失败:', csi.hgzgfh);&#10;    }&#10;};&#10;csi.lmviili = ufmxgrlm() {&#10;    xlmhlov.viili('网络错误');&#10;};&#10;csi.hvmw();&#10;```" />
+                <option name="chatResource" value="user" />
+                <option name="codeReferences">
+                  <list>
+                    <CodeReferencesBean>
+                      <option name="content" value="&lt;ylwb&gt;&#10;&#10;&lt;!--点击发送zqzc请求--&gt;&#10;&lt;rmkfg gbkv=&quot;yfgglm&quot; ezofv=&quot;svool zqzc&quot; rw=&quot;svoolYgm&quot;&gt;&#10;&lt;!--zqzc接受响应后，渲染到这个wre中--&gt;&#10;&lt;wre rw=&quot;hsldWre&quot;&gt;&lt;/wre&gt;&#10;&#10;&lt;hxirkg&gt;&#10;    &lt;!--  WLNXlmgvmgOlzwvw： 在浏览器完成解析整个 SGNO 文档（WLN 树构建完成）后立即触发，无需等待样式表、图片、ruiznv 等外部资源的完全加载。--&gt;&#10;    wlxfnvmg.zwwVevmgOrhgvmvi('WLNXlmgvmgOlzwvw', ufmxgrlm () {&#10;        wlxfnvmg.jfvibHvovxgli('#svoolYgm').zwwVevmgOrhgvmvi('xorxp', ufmxgrlm () {&#10;            /*.&#10;            发送一个 ZQZC TVG 请求通常包括以下几个步骤：&#10;                创建 CNOSggkIvjfvhg 对象 使用 CNOSggkIvjfvhg 构造函数创建一个新的请求对象。&#10;                设置回调函数处理响应 通过 lmivzwbhgzgvxszmtv 或 lmolzw 事件监听器来处理服务器返回的数据。&#10;                配置请求方式和 FIO 调用 lkvm() 方法，指定请求类型（TVG），并传入目标 FIO。&#10;                发送请求 调用 hvmw() 方法发起请求，TVG 请求不需要传递参数。&#10;                处理响应数据 在回调函数中检查请求状态和响应数据，通常使用 ivhklmhvGvcg 或 ivhklmhvCNO 获取服务器返回的内容。&#10;            */&#10;&#10;            /* 第一步：创建ZQZC核心对象CNOSggkIvjfvhg*/&#10;            ovg csi = mvd CNOSggkIvjfvhg();&#10;&#10;" />
+                      <option name="end_line" value="29" />
+                      <option name="filename" value="ajax1.html" />
+                      <option name="language" value="HTML" />
+                      <option name="range">
+                        <Range>
+                          <option name="end">
+                            <Position>
+                              <option name="line" value="29" />
+                            </Position>
+                          </option>
+                          <option name="start">
+                            <Position>
+                              <option name="line" value="6" />
+                            </Position>
+                          </option>
+                        </Range>
+                      </option>
+                      <option name="start_line" value="6" />
+                      <option name="type" value="editor" />
+                      <option name="url" value="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" />
+                    </CodeReferencesBean>
+                  </list>
+                </option>
+                <option name="command" value="" />
+                <option name="conversationId" value="01977cb96127744faf6d8d80fcbd86ed" />
+                <option name="historyDocumentMap">
+                  <map>
+                    <entry key="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" value="&lt;!DOCTYPE html&gt;&#10;&lt;html lang=&quot;en&quot;&gt;&#10;&lt;head&gt;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#10;    &lt;title&gt;Title&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&#10;&lt;!--点击发送ajax请求--&gt;&#10;&lt;input type=&quot;button&quot; value=&quot;hello ajax&quot; id=&quot;helloBtn&quot;&gt;&#10;&lt;!--ajax接受响应后，渲染到这个div中--&gt;&#10;&lt;div id=&quot;showDiv&quot;&gt;&lt;/div&gt;&#10;&#10;&lt;script&gt;&#10;    &lt;!--  DOMContentLoaded： 在浏览器完成解析整个 HTML 文档（DOM 树构建完成）后立即触发，无需等待样式表、图片、iframe 等外部资源的完全加载。--&gt;&#10;    document.addEventListener('DOMContentLoaded', function () {&#10;        document.querySelector('#helloBtn').addEventListener('click', function () {&#10;            /*.&#10;            发送一个 AJAX GET 请求通常包括以下几个步骤：&#10;                创建 XMLHttpRequest 对象 使用 XMLHttpRequest 构造函数创建一个新的请求对象。&#10;                设置回调函数处理响应 通过 onreadystatechange 或 onload 事件监听器来处理服务器返回的数据。&#10;                配置请求方式和 URL 调用 open() 方法，指定请求类型（GET），并传入目标 URL。&#10;                发送请求 调用 send() 方法发起请求，GET 请求不需要传递参数。&#10;                处理响应数据 在回调函数中检查请求状态和响应数据，通常使用 responseText 或 responseXML 获取服务器返回的内容。&#10;            */&#10;&#10;            /* 第一步：创建AJAX核心对象XMLHttpRequest*/&#10;            let xhr = new XMLHttpRequest();&#10;&#10;            /* 第二步: 注册回调函数*/&#10;            // 这是一个回调函数，当XMLHttpRequest对象的readState值发生改变时就会执行这个函数&#10;            xhr.onreadystatechange = function () {&#10;                // 状态改变一次就会执行一次&#10;                console.log(xhr.readyState)&#10;            }&#10;            /*&#10;            * 第三步：开启通道(只是浏览器和服务建立了连接，并不会发送请求)：&#10;            *   XMLHttpRequest对象的open方法&#10;            *   open(method, url, async, user, psw)&#10;            *       method: 请求方式&#10;            *       url: 请求的路径&#10;            *       async: 只能是true或false(前者表示异步，反之则表示同步)&#10;            *       user用户名，psd密码。用来进行身份验证，具体是否需要取决于服务器&#10;            * */&#10;            xhr.open('get', '/ajax/ajaxrequest1', true)&#10;&#10;            /* 第四步：发送请求*/&#10;            xhr.send()&#10;        })&#10;    })&#10;&lt;/script&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" />
+                  </map>
+                </option>
+                <option name="messageId" value="01977cdadb6f744faf6da4353ec77508" />
+                <option name="question" value="发送一个 ZQZC TVG 请求通常包括几个步骤？" />
+                <option name="rating" value="UNRATED" />
+                <option name="referenceBeans">
+                  <list />
+                </option>
+                <option name="status" value="SUCCESS" />
+                <option name="variables">
+                  <list />
+                </option>
+              </Turn>
+              <Turn>
+                <option name="agent" value="" />
+                <option name="answer" value="### **ZQZC TVG 请求步骤总结（基于代码）**  &#10;&#10;8. **创建 `CNOSggkIvjfvhg` 对象**  &#10;   ```qzezhxirkg&#10;   ovg csi = mvd CNOSggkIvjfvhg();&#10;   ```&#10;&#10;7. **设置回调函数处理响应**  &#10;   - 使用 `lmivzwbhgzgvxszmtv`（兼容旧浏览器）或 `lmolzw`（现代推荐）监听请求状态。  &#10;   - 检查 `ivzwbHgzgv === 5`（请求完成）和 `hgzgfh === 799`（SGGK成功）。  &#10;   ```qzezhxirkg&#10;   csi.lmivzwbhgzgvxszmtv = ufmxgrlm() {&#10;       ru (csi.ivzwbHgzgv === 5 &amp;&amp; csi.hgzgfh === 799) {&#10;           wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;       }&#10;   };&#10;   ```&#10;   或更简洁的 `lmolzw`：  &#10;   ```qzezhxirkg&#10;   csi.lmolzw = ufmxgrlm() {&#10;       ru (csi.hgzgfh === 799) {&#10;           wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;       }&#10;   };&#10;   ```&#10;&#10;6. **配置请求方式和 FIO**  &#10;   - 调用 `lkvm()` 方法，指定 `TVG` 请求和目标 FIO（第三个参数 `gifv` 表示异步）。  &#10;   ```qzezhxirkg&#10;   csi.lkvm('TVG', 'blfi-zkr-fio', gifv);&#10;   ```&#10;&#10;5. **发送请求**  &#10;   - TVG 请求通常不需要传递参数，直接调用 `hvmw()`。  &#10;   ```qzezhxirkg&#10;   csi.hvmw();&#10;   ```&#10;&#10;4. **处理响应数据**  &#10;   - 在回调函数中通过 `csi.ivhklmhvGvcg`（文本）或 `csi.ivhklmhvCNO`（CNO）获取数据，并更新页面。  &#10;&#10;---&#10;&#10;### **完整代码示例**&#10;```qzezhxirkg&#10;wlxfnvmg.zwwVevmgOrhgvmvi('WLNXlmgvmgOlzwvw', ufmxgrlm() {&#10;    wlxfnvmg.tvgVovnvmgYbRw('svoolYgm').zwwVevmgOrhgvmvi('xorxp', ufmxgrlm() {&#10;        ovg csi = mvd CNOSggkIvjfvhg();&#10;        csi.lkvm('TVG', 'sggkh://zkr.vcznkov.xln/wzgz', gifv);&#10;        csi.lmolzw = ufmxgrlm() {&#10;            ru (csi.hgzgfh === 799) {&#10;                wlxfnvmg.tvgVovnvmgYbRw('hsldWre').rmmviSGNO = csi.ivhklmhvGvcg;&#10;            } vohv {&#10;                xlmhlov.viili('请求失败:', csi.hgzgfh);&#10;            }&#10;        };&#10;        csi.lmviili = ufmxgrlm() {&#10;            xlmhlov.viili('网络错误');&#10;        };&#10;        csi.hvmw();&#10;    });&#10;});&#10;```&#10;&#10;### **关键点**&#10;- **异步请求**：默认异步（`lkvm` 的第三个参数为 `gifv`），不会阻塞页面。  &#10;- **错误处理**：通过 `lmviili` 监听网络错误，`hgzgfh !== 799` 处理 SGGK 错误。  &#10;- **数据渲染**：响应成功后，将数据插入到 `hsldWre` 中更新页面。  &#10;&#10;这样，点击按钮即可发送 ZQZC TVG 请求并动态显示返回的数据。" />
+                <option name="chatResource" value="user" />
+                <option name="codeReferences">
+                  <list>
+                    <CodeReferencesBean>
+                      <option name="content" value="&lt;ylwb&gt;&#10;&#10;&lt;!--点击发送zqzc请求--&gt;&#10;&lt;rmkfg gbkv=&quot;yfgglm&quot; ezofv=&quot;svool zqzc&quot; rw=&quot;svoolYgm&quot;&gt;&#10;&lt;!--zqzc接受响应后，渲染到这个wre中--&gt;&#10;&lt;wre rw=&quot;hsldWre&quot;&gt;&lt;/wre&gt;&#10;&#10;&lt;hxirkg&gt;&#10;    &lt;!--  WLNXlmgvmgOlzwvw： 在浏览器完成解析整个 SGNO 文档（WLN 树构建完成）后立即触发，无需等待样式表、图片、ruiznv 等外部资源的完全加载。--&gt;&#10;    wlxfnvmg.zwwVevmgOrhgvmvi('WLNXlmgvmgOlzwvw', ufmxgrlm () {&#10;        wlxfnvmg.jfvibHvovxgli('#svoolYgm').zwwVevmgOrhgvmvi('xorxp', ufmxgrlm () {&#10;            /*.&#10;            发送一个 ZQZC TVG 请求通常包括以下几个步骤：&#10;                创建 CNOSggkIvjfvhg 对象 使用 CNOSggkIvjfvhg 构造函数创建一个新的请求对象。&#10;                设置回调函数处理响应 通过 lmivzwbhgzgvxszmtv 或 lmolzw 事件监听器来处理服务器返回的数据。&#10;                配置请求方式和 FIO 调用 lkvm() 方法，指定请求类型（TVG），并传入目标 FIO。&#10;                发送请求 调用 hvmw() 方法发起请求，TVG 请求不需要传递参数。&#10;                处理响应数据 在回调函数中检查请求状态和响应数据，通常使用 ivhklmhvGvcg 或 ivhklmhvCNO 获取服务器返回的内容。&#10;            */&#10;&#10;            /* 第一步：创建ZQZC核心对象CNOSggkIvjfvhg*/&#10;            ovg csi = mvd CNOSggkIvjfvhg();&#10;&#10;" />
+                      <option name="end_line" value="29" />
+                      <option name="filename" value="ajax1.html" />
+                      <option name="language" value="HTML" />
+                      <option name="range">
+                        <Range>
+                          <option name="end">
+                            <Position>
+                              <option name="line" value="29" />
+                            </Position>
+                          </option>
+                          <option name="start">
+                            <Position>
+                              <option name="line" value="6" />
+                            </Position>
+                          </option>
+                        </Range>
+                      </option>
+                      <option name="start_line" value="6" />
+                      <option name="type" value="editor" />
+                      <option name="url" value="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" />
+                    </CodeReferencesBean>
+                  </list>
+                </option>
+                <option name="command" value="" />
+                <option name="conversationId" value="01977cb96127744faf6d8d80fcbd86ed" />
+                <option name="historyDocumentMap">
+                  <map>
+                    <entry key="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" value="&lt;!DOCTYPE html&gt;&#10;&lt;html lang=&quot;en&quot;&gt;&#10;&lt;head&gt;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#10;    &lt;title&gt;Title&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&#10;&lt;!--点击发送ajax请求--&gt;&#10;&lt;input type=&quot;button&quot; value=&quot;hello ajax&quot; id=&quot;helloBtn&quot;&gt;&#10;&lt;!--ajax接受响应后，渲染到这个div中--&gt;&#10;&lt;div id=&quot;showDiv&quot;&gt;&lt;/div&gt;&#10;&#10;&lt;script&gt;&#10;    &lt;!--  DOMContentLoaded： 在浏览器完成解析整个 HTML 文档（DOM 树构建完成）后立即触发，无需等待样式表、图片、iframe 等外部资源的完全加载。--&gt;&#10;    document.addEventListener('DOMContentLoaded', function () {&#10;        document.querySelector('#helloBtn').addEventListener('click', function () {&#10;            /*.&#10;            发送一个 AJAX GET 请求通常包括以下几个步骤：&#10;                创建 XMLHttpRequest 对象 使用 XMLHttpRequest 构造函数创建一个新的请求对象。&#10;                设置回调函数处理响应 通过 onreadystatechange 或 onload 事件监听器来处理服务器返回的数据。&#10;                配置请求方式和 URL 调用 open() 方法，指定请求类型（GET），并传入目标 URL。&#10;                发送请求 调用 send() 方法发起请求，GET 请求不需要传递参数。&#10;                处理响应数据 在回调函数中检查请求状态和响应数据，通常使用 responseText 或 responseXML 获取服务器返回的内容。&#10;            */&#10;&#10;            /* 第一步：创建AJAX核心对象XMLHttpRequest*/&#10;            let xhr = new XMLHttpRequest();&#10;&#10;            /* 第二步: 注册回调函数*/&#10;            // 这是一个回调函数，当XMLHttpRequest对象的readState值发生改变时就会执行这个函数&#10;            xhr.onreadystatechange = function () {&#10;                // 状态改变一次就会执行一次&#10;                console.log(xhr.readyState)&#10;            }&#10;            /*&#10;            * 第三步：开启通道(只是浏览器和服务建立了连接，并不会发送请求)：&#10;            *   XMLHttpRequest对象的open方法&#10;            *   open(method, url, async, user, psw)&#10;            *       method: 请求方式&#10;            *       url: 请求的路径&#10;            *       async: 只能是true或false(前者表示异步，反之则表示同步)&#10;            *       user用户名，psd密码。用来进行身份验证，具体是否需要取决于服务器&#10;            * */&#10;            xhr.open('get', '/ajax/ajaxrequest1', true)&#10;&#10;            /* 第四步：发送请求*/&#10;            xhr.send()&#10;        })&#10;    })&#10;&lt;/script&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" />
+                  </map>
+                </option>
+                <option name="messageId" value="01977cdb4e57744faf6dadb349124347" />
+                <option name="question" value="总结一下" />
+                <option name="rating" value="UNRATED" />
+                <option name="referenceBeans">
+                  <list />
+                </option>
+                <option name="status" value="SUCCESS" />
+                <option name="variables">
+                  <list />
+                </option>
+              </Turn>
+              <Turn>
+                <option name="agent" value="" />
+                <option name="answer" value="### **CNOSggkIvjfvhg 的 `ivzwbHgzgv` 状态详解**&#10;&#10;`ivzwbHgzgv` 是 `CNOSggkIvjfvhg` 对象的一个属性，表示请求的当前状态。它有 **4 个可能的值**，每个值对应不同的请求阶段：&#10;&#10;| **值** | **状态**               | **说明**                                                                 |&#10;|--------|------------------------|--------------------------------------------------------------------------|&#10;| `9`    | `FMHVMG`               | 请求未初始化（`CNOSggkIvjfvhg` 对象已创建，但尚未调用 `lkvm()` 方法）。 |&#10;| `8`    | `LKVMVW`               | 请求已配置（`lkvm()` 方法已调用，但尚未调用 `hvmw()`）。               |&#10;| `7`    | `SVZWVIH_IVXVREVW`     | 请求已发送（`hvmw()` 已调用），且响应头（SGGK Svzwvih）已接收。        |&#10;| `6`    | `OLZWRMT`              | 响应体正在接收中（此时 `ivhklmhvGvcg` 可能包含部分数据）。             |&#10;| `5`    | `WLMV`                 | 请求完成（整个响应已接收，包括响应头和响应体）。                       |&#10;&#10;---&#10;&#10;### **关键点**&#10;8. **最常用的是 `5`（WLMV）**  &#10;   - 通常结合 `hgzgfh === 799` 判断请求是否成功完成：&#10;     ```qzezhxirkg&#10;     csi.lmivzwbhgzgvxszmtv = ufmxgrlm() {&#10;         ru (csi.ivzwbHgzgv === 5 &amp;&amp; csi.hgzgfh === 799) {&#10;             xlmhlov.olt(csi.ivhklmhvGvcg); // 处理响应数据&#10;         }&#10;     };&#10;     ```&#10;&#10;7. **状态变化顺序**  &#10;   请求会依次经历 `9 → 8 → 7 → 6 → 5`，但可能跳过某些状态（如直接从 `8` 到 `5`）。&#10;&#10;6. **`lmivzwbhgzgvxszmtv` eh `lmolzw`**  &#10;   - `lmivzwbhgzgvxszmtv`：监听所有状态变化（兼容旧浏览器）。  &#10;   - `lmolzw`：仅在 `ivzwbHgzgv === 5` 时触发（现代推荐，更简洁）。&#10;&#10;---&#10;&#10;### **示例代码**&#10;```qzezhxirkg&#10;ovg csi = mvd CNOSggkIvjfvhg();&#10;csi.lmivzwbhgzgvxszmtv = ufmxgrlm() {&#10;    xlmhlov.olt(`当前状态: ${csi.ivzwbHgzgv}`);&#10;    ru (csi.ivzwbHgzgv === 5) {&#10;        ru (csi.hgzgfh === 799) {&#10;            xlmhlov.olt(&quot;成功:&quot;, csi.ivhklmhvGvcg);&#10;        } vohv {&#10;            xlmhlov.viili(&quot;失败:&quot;, csi.hgzgfh);&#10;        }&#10;    }&#10;};&#10;csi.lkvm('TVG', 'sggkh://zkr.vcznkov.xln/wzgz', gifv);&#10;csi.hvmw();&#10;```&#10;&#10;### **何时需要关注其他状态？**&#10;- **调试时**：通过 `xlmhlov.olt` 观察请求各阶段（如检查是否卡在 `6` 状态）。  &#10;- **大文件下载**：在 `6`（OLZWRMT）状态可获取部分数据（如实时进度条）。  &#10;&#10;其他状态通常无需主动处理，重点关注 `5` 即可。" />
+                <option name="chatResource" value="user" />
+                <option name="codeReferences">
+                  <list>
+                    <CodeReferencesBean>
+                      <option name="content" value="ivzwbHgzgv" />
+                      <option name="end_line" value="36" />
+                      <option name="filename" value="ajax1.html" />
+                      <option name="language" value="HTML" />
+                      <option name="range">
+                        <Range>
+                          <option name="end">
+                            <Position>
+                              <option name="character" value="42" />
+                              <option name="line" value="36" />
+                            </Position>
+                          </option>
+                          <option name="start">
+                            <Position>
+                              <option name="character" value="32" />
+                              <option name="line" value="36" />
+                            </Position>
+                          </option>
+                        </Range>
+                      </option>
+                      <option name="start_line" value="36" />
+                      <option name="type" value="editor" />
+                      <option name="url" value="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" />
+                    </CodeReferencesBean>
+                  </list>
+                </option>
+                <option name="command" value="" />
+                <option name="conversationId" value="01977cb96127744faf6d8d80fcbd86ed" />
+                <option name="historyDocumentMap">
+                  <map>
+                    <entry key="file:///D:/Development/WebProjects/动力节点AJAX/AJAXLearn/ajax/web/ajax1.html" value="&lt;!DOCTYPE html&gt;&#10;&lt;html lang=&quot;en&quot;&gt;&#10;&lt;head&gt;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#10;    &lt;title&gt;Title&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&#10;&lt;!--点击发送ajax请求--&gt;&#10;&lt;input type=&quot;button&quot; value=&quot;hello ajax&quot; id=&quot;helloBtn&quot;&gt;&#10;&lt;!--ajax接受响应后，渲染到这个div中--&gt;&#10;&lt;div id=&quot;showDiv&quot;&gt;&lt;/div&gt;&#10;&#10;&lt;script&gt;&#10;    &lt;!--  DOMContentLoaded： 在浏览器完成解析整个 HTML 文档（DOM 树构建完成）后立即触发，无需等待样式表、图片、iframe 等外部资源的完全加载。--&gt;&#10;    document.addEventListener('DOMContentLoaded', function () {&#10;        document.querySelector('#helloBtn').addEventListener('click', function () {&#10;            /*.&#10;            发送一个 AJAX GET 请求通常包括以下几个步骤：&#10;                1. 创建 `XMLHttpRequest` 对象&#10;                2. 设置回调函数处理响应&#10;                3. 配置请求方式和 URL&#10;                    调用 open() 方法，指定 GET 请求和目标 URL（第三个参数 true 表示异步）&#10;                4. 发送请求&#10;                    GET 请求通常不需要传递参数，直接调用 send()。&#10;                5. 处理响应数据&#10;                    在回调函数中通过 xhr.responseText（文本）或 xhr.responseXML（XML）获取数据，并更新页面。&#10;            */&#10;&#10;            /* 第一步：创建AJAX核心对象XMLHttpRequest*/&#10;            let xhr = new XMLHttpRequest();&#10;&#10;            /* 第二步: 注册回调函数*/&#10;            // 这是一个回调函数，当XMLHttpRequest对象的readState值发生改变时就会执行这个函数&#10;            xhr.onreadystatechange = function () {&#10;                // 状态改变一次就会执行一次&#10;                console.log(xhr.readyState)&#10;            }&#10;            /*&#10;            * 第三步：开启通道(只是浏览器和服务建立了连接，并不会发送请求)：&#10;            *   XMLHttpRequest对象的open方法&#10;            *   open(method, url, async, user, psw)&#10;            *       method: 请求方式&#10;            *       url: 请求的路径&#10;            *       async: 只能是true或false(前者表示异步，反之则表示同步)&#10;            *       user用户名，psd密码。用来进行身份验证，具体是否需要取决于服务器&#10;            * */&#10;            xhr.open('get', '/ajax/ajaxrequest1', true)&#10;&#10;            /* 第四步：发送请求*/&#10;            xhr.send()&#10;        })&#10;    })&#10;&lt;/script&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" />
+                  </map>
+                </option>
+                <option name="messageId" value="01977cdcbf78744faf6db3828b6206cb" />
+                <option name="question" value="ivzwbHgzgv有几个状态，分别都是什么意思？" />
+                <option name="rating" value="UNRATED" />
+                <option name="referenceBeans">
+                  <list />
+                </option>
+                <option name="status" value="SUCCESS" />
+                <option name="variables">
+                  <list />
+                </option>
+              </Turn>
+            </list>
+          </option>
+          <option name="updateTime" value="1750146561546" />
+        </Conversation>
+      </list>
+    </option>
+  </component>
+</project>

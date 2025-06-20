@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--点击发送ajax请求-->
+<input type="button" value="hello ajax" id="helloBtn">
+<!--ajax接受响应后，渲染到这个div中-->
+<div id="showDiv"></div>
+
+<script>
+    <!--  DOMContentLoaded： 在浏览器完成解析整个 HTML 文档（DOM 树构建完成）后立即触发，无需等待样式表、图片、iframe 等外部资源的完全加载。-->
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('#helloBtn').addEventListener('click', function () {
+            /*.
+            发送一个 AJAX GET 请求通常包括以下几个步骤：
+                1. 创建 `XMLHttpRequest` 对象
+                2. 设置回调函数处理响应
+                3. 配置请求方式和 URL
+                    调用 open() 方法，指定 GET 请求和目标 URL（第三个参数 true 表示异步）
+                4. 发送请求
+                    GET 请求通常不需要传递参数，直接调用 send()。
+                5. 处理响应数据
+                    在回调函数中通过 xhr.responseText（文本）或 xhr.responseXML（XML）获取数据，并更新页面。
+
+
+            XMLHttpRequest 的 `readyState` 状态详解
+                readyState 是 XMLHttpRequest 对象的一个属性，表示请求的当前状态。它有 5 个可能的值，每个值对应不同的请求阶段：
+                    0	请求未初始化（XMLHttpRequest 对象已创建，但尚未调用 open() 方法）。
+                    1	请求已配置（open() 方法已调用，但尚未调用 send()）。
+                    2	请求已发送（send() 已调用），且响应头（HTTP Headers）已接收。
+                    3	响应体正在接收中（此时 responseText 可能包含部分数据）。
+                    4	请求完成（整个响应已接收，包括响应头和响应体）。
+            */
+
+            /* 第一步：创建AJAX核心对象XMLHttpRequest*/
+            let xhr = new XMLHttpRequest();
+
+            /* 第二步: 注册回调函数*/
+            // 这是一个回调函数，当XMLHttpRequest对象的readState值发生改变时就会执行这个函数
+            xhr.onreadystatechange = function () {
+                // 状态改变一次就会执行一次
+                console.log(xhr.readyState)
+
+                if(this.readyState === 4) {
+                    // 4表示响应结束
+
+                    // 获取HTTP状态码
+                    console.log('HTTP响应状态码' + this.status)
+                    if(this.status === 404) {
+                        alert('资源找不到')
+                    } else if(this.status === 500) {
+                        alert('服务器出错')
+                    }else if(this.status === 200) {
+                        alert('响应成功')
+                        // 通过XMLHttpRequest对象获取响应的信息(Servlet里resp.getWriter().print())
+                        console.log('获取响应的信息' + this.responseText)
+
+                        document.querySelector("div").innerHTML = this.responseText
+                    }
+                }
+            }
+            /*
+            * 第三步：开启通道(只是浏览器和服务建立了连接，并不会发送请求)：
+            *   XMLHttpRequest对象的open方法
+            *   open(method, url, async, user, psw)
+            *       method: 请求方式
+            *       url: 请求的路径
+            *       async: 只能是true或false(前者表示异步，反之则表示同步)
+            *       user用户名，psd密码。用来进行身份验证，具体是否需要取决于服务器
+            * */
+            xhr.open('get', '/ajax/ajaxrequest1', true)
+
+            /* 第四步：发送请求*/
+            xhr.send()
+        })
+    })
+</script>
+</body>
+</html>

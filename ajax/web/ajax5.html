@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX POST请求验证用户名是否可用</title>
+</head>
+<body>
+用户名：<input type="text" id="username">
+<br>
+<span id="tipMsg">
+
+</span>
+
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('#username').addEventListener('blur', function () {
+
+            // 获取表单的值
+            let username = document.querySelector('#username').value
+
+            // 1. 创建对象
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            // 注册回调函数
+            xmlHttpRequest.addEventListener('readystatechange', function () {
+                if (this.readyState === 4) {
+
+                    if (this.status === 200) {
+                        document.querySelector('#tipMsg').innerHTML = this.responseText
+                    } else {
+                        alert(this.status)
+                    }
+                }
+            })
+
+            xmlHttpRequest.open('POST', '/ajax/ajaxrequest5', true)
+            xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xmlHttpRequest.send("username=" + username)
+        })
+    })
+</script>
+</body>
+</html>

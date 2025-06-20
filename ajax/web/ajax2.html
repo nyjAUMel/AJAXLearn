@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送ajax Get请求</title>
+</head>
+<body>
+<script>
+    // 页面加载完毕后执行回调函数
+    window.onload = function () {
+        document.querySelector('#btn').addEventListener('click', () => {
+            // 1. 创建AJAX核心对象
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            // 2. 注册回调函数
+            xmlHttpRequest.onreadystatechange = function (){
+
+                // 状态改变一次就会执行一次
+                console.log(xmlHttpRequest.readyState)
+                // 4表示响应结束
+                if (this.readyState === 4) {
+
+                    // 获取HTTP状态码
+                    console.log('HTTP响应状态码' + this.status)
+                    if (this.status === 404) {
+                        alert('资源找不到')
+                    } else if (this.status === 500) {
+                        alert('服务器出错')
+                    } else if (this.status === 200) {
+                        alert('响应成功')
+                        // 通过XMLHttpRequest对象获取响应回来的内容
+                        // 无论响应的是什么，都已普通文本接收
+                        console.log('获取响应的信息' + this.responseText)
+
+                        document.querySelector('#spanOne').innerText = this.responseText
+                    }
+                }
+            }
+            // 3. 开启通道
+            xmlHttpRequest.open('get', "/ajax/ajaxrequest2", true)
+            // 4. 发送请求
+            xmlHttpRequest.send();
+        })
+    }
+</script>
+
+<button id="btn">发送ajax Get请求</button>
+<br>
+<span id="spanOne"></span>
+</body>
+</html>

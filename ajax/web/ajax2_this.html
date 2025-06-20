@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">发送ajax Get请求</button>
+<br>
+<span id="spanOne"></span>
+
+<script>
+    window.onload = function () {
+        document.querySelector('#btn').addEventListener('click', () => {
+            let xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.onreadystatechange = rollback;
+
+            xmlHttpRequest.open('get', '/ajax/ajaxrequest2',true)
+            xmlHttpRequest.send();
+        })
+
+        // this 的值是在函数被调用时动态确定的，而不是在函数定义时。
+        function rollback() {
+            console.log(this)
+
+            // 4表示响应结束
+            if (this.readyState === 4) {
+
+                // 获取HTTP状态码
+                console.log('HTTP响应状态码' + this.status)
+                if (this.status === 404) {
+                    alert('资源找不到')
+                } else if (this.status === 500) {
+                    alert('服务器出错')
+                } else if (this.status === 200) {
+                    alert('响应成功')
+                    // 通过XMLHttpRequest对象获取响应回来的内容
+                    // 无论响应的是什么，都已普通文本接收
+                    console.log('获取响应的信息' + this.responseText)
+
+                    document.querySelector('#spanOne').innerText = this.responseText
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
