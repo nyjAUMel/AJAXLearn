@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>显示列表</button>
+<table width="500px" border="1px">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector("button").addEventListener('click', () => {
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            xmlHttpRequest.addEventListener('readystatechange', function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        // 这里用的就是responseXMl了，而非responseText
+                        // getElementsByTagName('tagName')：根据标签名获取元素列表。肯定不止一个，所以是个数组
+                        const xmlDoc = this.responseXML.getElementsByTagName("student")
+
+                        let str = ""
+                        for (let i = 0; i < xmlDoc.length; i++) {
+                            str += "<tr>"
+                            for (let j = 0; j < xmlDoc[i].children.length; j++) {
+                                str += `
+                                <td>
+                                    ${xmlDoc[i].childNodes[j].textContent}
+                                </td>
+                                `
+                            }
+                            str += "</tr>"
+                        }
+                        document.querySelector("tbody").innerHTML = str
+                    }
+                }
+            })
+
+            xmlHttpRequest.open('get', '/ajax/ajaxrequest7?t=' + new Date().getTime(), true)
+
+            xmlHttpRequest.send();
+        })
+    })
+</script>
+</body>
+</html>
