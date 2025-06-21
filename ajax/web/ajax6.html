@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送AJAX请求 显示学生列表</title>
+</head>
+<body>
+<input type="button" value="显示学生列表" id="btn">
+<table width="50%" border="1px">
+    <tr>
+        <th>序号</th>
+        <th>姓名</th>
+    </tr>
+    <tbody id="stubody">
+
+    </tbody>
+</table>
+
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('#btn').addEventListener('click', function () {
+
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            xmlHttpRequest.addEventListener('readystatechange', function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        let str =""
+                        JSON.parse(this.responseText).forEach(function (student) {
+                            str+= `<tr><td>${student.no}</td><td>${student.name}</td></tr>`
+                        })
+                        document.querySelector('#stubody').innerHTML = str
+                    } else {
+                        alert(this.status)
+                    }
+                }
+            })
+
+            xmlHttpRequest.open('GET', '/ajax/ajaxrequest6?t=' + new Date().getTime(), true)
+
+            xmlHttpRequest.send();
+        })
+    })
+</script>
+</body>
+</html>
