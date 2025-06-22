@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示AJAX同步和异步</title>
+</head>
+<body>
+<button id="btn1">ajax请求1</button>
+<button id="btn2">ajax请求2</button>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector('#btn1').addEventListener('click', () => {
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            xmlHttpRequest.addEventListener('readystatechange', function () {
+                if(this.readyState === 4) {
+                    if(this.status === 200) {
+                        document.querySelector('#div1').innerText = this.responseText
+                    }
+                }
+            })
+
+            // 必须等这个请求发完并收到响应，JavaScript 主线程才能继续执行其他代码，包括发送别的请求。
+            xmlHttpRequest.open('get', '/ajax/ajaxrequest8', false)
+            // 发送请求
+            xmlHttpRequest.send()
+        })
+
+        document.querySelector('#btn2').addEventListener('click', () => {
+            let xmlHttpRequest = new XMLHttpRequest();
+
+            xmlHttpRequest.addEventListener('readystatechange', function () {
+                if(this.readyState === 4) {
+                    if(this.status === 200) {
+                        document.querySelector('#div2').innerText = this.responseText
+                    }
+                }
+            })
+
+            xmlHttpRequest.open('get', '/ajax/ajaxrequest9', true)
+            // 发送请求
+            xmlHttpRequest.send()
+        })
+    })
+</script>
+</body>
+</html>

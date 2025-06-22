@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      // 构造函数
+      function Car(make, model) {
+        this.make = make;
+        this.model = model;
+        this.speed = 0;
+      }
+
+      // 在原型上定义实例方法
+      Car.prototype.accelerate = function (amount) {
+        this.speed += amount;
+        console.log(`${this.make} ${this.model} is now at ${this.speed} mph.`);
+      };
+
+      Car.prototype.brake = function (amount) {
+        this.speed = Math.max(0, this.speed - amount);
+        console.log(
+          `${this.make} ${this.model} slowed down to ${this.speed} mph.`
+        );
+      };
+
+      // 创建实例
+      const myCar = new Car("Toyota", "Camry");
+      const anotherCar = new Car("Honda", "Civic");
+
+      // 调用实例方法
+      myCar.accelerate(50); // 输出: Toyota Camry is now at 50 mph.
+      myCar.brake(20); // 输出: Toyota Camry slowed down to 30 mph.
+
+      anotherCar.accelerate(70); // 输出: Honda Civic is now at 70 mph.
+
+      /* 
+      ES6语法糖的形式
+      
+        在 ES6 class 语法中的体现：
+            class 语法实际上是原型继承的语法糖。在 class 中定义的方法默认就添加到了原型上。
+      */
+      class Person {
+        // 如果你的类不需要在创建实例时执行任何特殊的初始化逻辑（例如，给实例属性赋值），你可以完全省略 constructor 方法。
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        // 这是一个实例方法，定义在 Person.prototype 上
+        sayHello() {
+          console.log(
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
+          );
+        }
+
+        // 另一个实例方法
+        celebrateBirthday() {
+          this.age++;
+          console.log(`Happy birthday, ${this.name}! You are now ${this.age}.`);
+        }
+      }
+
+      const alice = new Person("Alice", 30);
+      const bob = new Person("Bob", 25);
+
+      alice.sayHello(); // 输出: Hello, my name is Alice and I am 30 years old.
+      alice.celebrateBirthday(); // 输出: Happy birthday, Alice! You are now 31.
+      bob.sayHello(); // 输出: Hello, my name is Bob and I am 25 years old.
+
+      /* 
+      直接定义在实例上（在构造函数内部定义）：
+        这种方式较少用于方法，因为它会为每个实例创建方法的副本，浪费内存。
+            特点：
+                每个实例都有自己独立的方法副本。
+                可以通过 this 关键字访问实例自身的属性。
+      */
+      function Dog(name, breed) {
+        this.name = name;
+        this.breed = breed;
+        /* 
+        直接在实例上定义方法
+            这种方式只能通过 new Dog(...) 创建的实例对象来调用。
+        */
+        this.bark = function () {
+          console.log(
+            `<span class="math-inline">\{this\.name\} \(</span>{this.breed}) says Woof!`
+          );
+        };
+        /*
+        这种定义方式将创建一个局部变量eat，只在 Dog 构造函数内部可见
+        也就是说在外面尝试调用 myDog.bark() 会报错
+                                console.log(myDog.bark); // undefined
+                                myDog.bark(); // TypeError: myDog.bark is not a function
+        */
+        eat = function () {
+          console.log("吃骨头");
+        };
+      }
+      const dog1 = new Dog("Buddy", "Golden Retriever");
+      const dog2 = new Dog("Max", "Labrador");
+      dog1.bark(); // 输出: Buddy (Golden Retriever) says Woof!
+      dog2.bark(); // 输出: Max (Labrador) says Woof!
+      // 注意：dog1.bark !== dog2.bark (因为它们是不同的函数对象)
+
+      // ----------------------------------------分割线----------------------------------------
+
+      /* 
+      定义静态属性（Static Properties）或静态方法（Static Methods）
+      
+      */
+      function MyConstructor(instanceProperty) {
+        this.instanceProperty = instanceProperty; // 实例属性
+
+        // 这是一个定义在构造函数内部的局部变量或实例方法，与下面要讲的“函数名.属性”不同
+        // this.instanceMethod = function() { console.log('Instance method:', this.instanceProperty); };
+      }
+
+      // 在函数外部，通过函数名本身添加属性和方法
+      MyConstructor.staticProperty = "我是一个静态属性"; // 静态属性
+
+      MyConstructor.staticMethod = function (param) {
+        console.log("我是一个静态方法，可以访问参数:", param);
+        // this在这里通常指向MyConstructor函数本身（非严格模式）或undefined（严格模式）
+        console.log("静态方法不能直接访问实例属性:", this.instanceProperty);
+        // 静态方法不能直接访问实例属性，因为它们不与任何特定的实例绑定
+      };
+
+      // 在 ES6 class 语法中，使用 static 关键字：
+      class MyClass {
+        constructor(instanceProperty) {
+          this.instanceProperty = instanceProperty;
+        }
+
+        // 实例方法
+        instanceMethod() {
+          console.log("实例方法:", this.instanceProperty);
+        }
+
+        // 静态属性 (ESNext)
+        static staticProperty = "我是一个静态属性 (Class)";
+
+        // 静态方法 (ES6)
+        static staticMethod(param) {
+          console.log("我是一个静态方法 (Class)，可以访问参数:", param);
+          // console.log(this.instanceProperty); // 静态方法不能直接访问实例属性
+          // 静态方法中的this指向类本身，而不是实例
+          console.log("静态方法中的this指向类本身:", this === MyClass);
+          console.log("访问静态属性:", this.staticProperty);
+        }
+      }
+
+      // --- 如何使用它们 ---
+
+      // 1. 访问静态属性和方法 (通过函数名/类名直接访问)
+      console.log(MyConstructor.staticProperty); // 输出: 我是一个静态属性
+      MyConstructor.staticMethod("hello"); // 输出: 我是一个静态方法，可以访问参数: hello
+
+      console.log(MyClass.staticProperty); // 输出: 我是一个静态属性 (Class)
+      MyClass.staticMethod("world"); // 输出: 我是一个静态方法 (Class)，可以访问参数: world
+
+      // 2. 访问实例属性和方法 (通过 new 创建实例后访问)
+      const instance1 = new MyConstructor("实例1的属性");
+      const instance2 = new MyClass("实例2的属性");
+
+      console.log(instance1.instanceProperty); // 输出: 实例1的属性
+      // instance1.staticMethod(); // 错误！静态方法不能通过实例调用
+
+      instance2.instanceMethod(); // 输出: 实例方法: 实例2的属性
+      // instance2.staticMethod(); // 错误！静态方法不能通过实例调用
+
+      /* 
+      把静态变量和函数直接写到函数里
+      */
+      function MyConstructorA(instanceProperty) {
+        this.instanceProperty = instanceProperty;
+        console.log("MyConstructorA 正在被执行..."); // 观察这个
+        MyConstructorA.staticProperty = "我是一个静态属性A";
+      }
+
+      console.log("--- 第一次创建实例 ---");
+      const instanceA1 = new MyConstructorA("propA1"); // MyConstructorA 正在被执行...
+      console.log(MyConstructorA.staticProperty); // 我是一个静态属性A
+
+      console.log("--- 第二次创建实例 ---");
+      const instanceA2 = new MyConstructorA("propA2"); // MyConstructorA 正在被执行...
+      console.log(MyConstructorA.staticProperty); // 我是一个静态属性A (值没变，但赋值操作再次发生)
+      /* 
+      这种方式相较于第一种：
+        执行时机： MyConstructorA.staticProperty = '...' 这行代码只会在每次调用 new MyConstructorA(...) 创建一个新实例时被执行。
+        重复赋值： 如果你创建了多个实例，这行代码会被重复执行多次。虽然它每次都尝试将 staticProperty 赋值为相同的值，但这个赋值操作是重复发生的。
+        内存/性能开销 (微小): 尽管最终结果可能看起来一样，但每次实例创建都会有一个额外的赋值操作，从理论上讲会带来微小的性能开销。
+        意图不明确： 这种写法可能会误导开发者，以为 staticProperty 是实例的一部分，或者它与实例的创建有什么特殊联系。实际上，它仍然是属于构造函数自身的属性。
+
+      */
+    </script>
+  </body>
+</html>

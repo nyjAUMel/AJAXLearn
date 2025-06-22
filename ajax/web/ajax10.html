@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手动封装JS库jQuery</title>
+</head>
+<body>
+<button id="btn">显示信息</button>
+
+<div id="div1"></div>
+
+<script>
+
+    function jQuery(choice) {
+        let interim = typeof choice
+        if (interim === 'string') {
+            return document.querySelector(choice)
+        }
+        if (interim === 'function') {
+            window.addEventListener('load', choice)
+        }
+    }
+
+    $ = jQuery
+
+    $(function () {
+        $('#div1').innerText = '蔡徐坤'
+    })
+</script>
+</body>
+</html>
