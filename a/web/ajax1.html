@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>a服务</h1>
+<a href="http://localhost:8082/b/servlet1">访问B的资源</a>
+<button>点击发送AJAX跨域请求</button>
+<script>
+    /*
+    CORS 简介：
+        出于安全原因，浏览器会限制从脚本内部发起的跨域 HTTP 请求。这意味着，如果你在 http://example.com 的网页上运行 JavaScript，你不能直接通过 XHR (XMLHttpRequest) 或 Fetch API 去请求 http://api.another-domain.com 上的资源。这就是同源策略（Same-Origin Policy）的限制。CORS 机制允许服务器明确指定哪些来源（origin）的网页可以访问其资源。
+
+    1. 什么是同源策略？
+            同源策略是一种安全功能，它限制了从一个“源”（origin）加载的文档或脚本如何与来自另一个“源”的资源进行交互。它的目的是防止恶意网站读取或修改另一个网站的数据，从而保护用户的信息安全。
+    2. “同源”的定义
+            如果两个 URL 的**协议（Protocol）、主机名（Host/Domain）和端口号（Port）**都相同，那么它们就是“同源”的。只要其中任何一个不同，就被认为是“跨源”（Cross-Origin）。
+     */
+
+    // 超链接、script标签的src、表单、以及JS设置window.location.href是允许跨域的
+
+    /*
+    AJAX不允许跨域
+        解决方法：在要访问的资源设置请求头
+                即：setHeader("Access-Control-Allow-Origin", "允许特定来源的网页的地址");
+    */
+    document.querySelector('button').addEventListener('click', function () {
+        const XML = new XMLHttpRequest();
+        /*
+        这里是发送不过去的(除非在目标资源设置请求头)
+            报错：
+                Access to XMLHttpRequest at 'http://localhost:8082/b/servlet1' from origin 'http://localhost:8081' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+         */
+        XML.open('GET', 'http://localhost:8082/b/servlet1', true);
+        XML.send()
+        XML.addEventListener('readystatechange', function () {
+            if(this.readyState === 4){
+                if(this.status === 200) {
+                    alert('跨域访问成功')
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

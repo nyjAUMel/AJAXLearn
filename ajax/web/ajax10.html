@@ -14,17 +14,27 @@
     function jQuery(choice) {
         let interim = typeof choice
         if (interim === 'string') {
-            return document.querySelector(choice)
+            DOM = document.querySelector(choice)
+            console.log(this)
+            return new jQuery();
         }
+
+        // 页面加载完毕之后，注册回调函数
         if (interim === 'function') {
             window.addEventListener('load', choice)
+        }
+
+        // 定义一个html()函数，代替：DOM对象的innerHTML方法
+        this.html = function (text) {
+            console.log(this)
+            DOM.innerHTML = text
         }
     }
 
     $ = jQuery
 
     $(function () {
-        $('#div1').innerText = '蔡徐坤'
+        $('#div1').html('蔡徐坤')
     })
 </script>
 </body>

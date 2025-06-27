@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="selectProvince">
+
+</select>
+<select name="" id="selectCities"></select>
+<script>
+
+    const selectProvince = document.querySelector('#selectProvince')
+
+    window.addEventListener('load', function () {
+        // 解决首次加载不显示城市的问题
+        // 改变this指向
+        loadProvincesOrCities('')
+
+    })
+
+    selectProvince.addEventListener('change', callFun)
+
+    // 通过这个函数来调用查询省市的方法来查询城市
+    function callFun() {
+        // selectedIndex获取选中的选项下标(从0开始)
+        // options[index]通过下标获取选项
+        // options[index].id获取id属性
+        const parentId = this.options[this.selectedIndex].id;
+        loadProvincesOrCities(parentId)
+    }
+
+    /**
+     * 加载省份或城市函数
+     */
+    function loadProvincesOrCities(parentId) {
+        let XHR = new XMLHttpRequest();
+
+        // 根据是否为空判断是省份还是城市
+        provinces = document.querySelector('#selectProvince')
+        cities = document.querySelector('#selectCities')
+        provinceOrCities = parentId === '' ? provinces : cities
+
+        // 如果为空传入0
+        parentId = parentId === '' ? 0 : parentId
+
+        XHR.open('GET', '/ajax/ajaxrequest10?parentId=' + parentId, true);
+        XHR.send();
+
+        XHR.addEventListener('readystatechange', function () {
+            console.log(this.readyState)
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    let provincesOrCities = JSON.parse(this.responseText)
+                    let str = ''
+                    for (let i = 0; i < provincesOrCities.length; i++) {
+                        str += `
+                                <option id="${provincesOrCities[i].id}" value="${provincesOrCities[i].name}">${provincesOrCities[i].name}</option>
+                            `
+                    }
+                    console.log('AJAX')
+                    provinceOrCities.innerHTML = str
+                }
+            }
+        })
+    }
+
+</script>
+</body>
+</html>
