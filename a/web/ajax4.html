@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="./js/jquery-3.7.1.js"></script>
+<button id="btn">jQuery封装的jsonp</button>
+<div id="myDiv"></div>
+<script>
+    $(function () {
+        $('#btn').click(function () {
+            // 发送ajax(但其实不是真的ajax)请求
+            $.ajax({
+                type: 'GET', // jsonp请求只支持get请求
+                // 这个发送请求会自动生成一个参数，该参数名叫callback，待就收完后端发来的数据后该参数会自动调用success的函数
+                url: 'http://localhost:8082/b/servlet5',
+                dataType: 'jsonp', // 指定数据类型是jsonp
+                success: function (data) { // data变量接收服务器端的响应(data是一个json)
+                    $('#myDiv').html('欢迎：'+data.username)
+                },
+                /*
+                * 还有两个参数，分别是：
+                *               1. jsonp(该参数用来指定发送的参数名，替换掉默认的callback)
+                *               2. jsonpCallback(该参数用来指定返回后执行的函数，替换掉原来的success了)
+                * */
+            })
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索联想功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+
+        .search-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .suggestions {
+            border: 1px solid #ccc;
+            border-top: none;
+            max-height: 200px;
+            overflow-y: auto;
+            position: absolute;
+            width: calc(100% - 2px);
+            background: white;
+            z-index: 1000;
+            /*display: none;*/
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="请输入关键词进行搜索...">
+    <div class="suggestions" id="suggestionsBox">
+
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector('#searchInput').addEventListener('keyup', function () {
+            // 获取输入框的值
+            const searchInputValue = document.querySelector('#searchInput').value
+            // 获取div
+            const suggestionsBox = document.querySelector('#suggestionsBox')
+            // 设置联想词框可见并且先置空
+            suggestionsBox.style.display = 'block'
+            suggestionsBox.innerHTML = ''
+            const XHR = new XMLHttpRequest();
+
+            XHR.open('GET', '/auto_completion/auto?val=' + searchInputValue, true);
+            XHR.send();
+
+            XHR.addEventListener('readystatechange', function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) {
+                        const associationalWord = JSON.parse(this.responseText);
+                        let str = ''
+                        for (const item of associationalWord) {
+                            str += `
+                            <p onclick=\"completeWord('${item.keyword}')\">${item.keyword}</p>
+                            `
+                        }
+                        suggestionsBox.innerHTML = str
+                    }
+                }
+            })
+
+
+        })
+    })
+    // 自动补全
+    // HTML 中的 onclick="completeWord(...)" 要求这个函数是 全局函数，才能被调用。
+    // 所以写在上面的回调函数里没法用
+    function completeWord(wordStr) {
+        document.querySelector('#searchInput').value = wordStr
+       document.querySelector('#suggestionsBox').style.display = 'none'
+    }
+</script>
+
+</body>
+</html>

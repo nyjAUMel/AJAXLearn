@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp跨域</title>
+</head>
+<body>
+<!-- 实现点击按钮才发送请求 -->
+<button>点击发送跨域请求</button>
+
+<script>
+    function sayHello(data) {
+        console.log('你好:'+ data.name)
+    }
+</script>
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('button').addEventListener('click', function () {
+            // 创建script标签
+            const scriptEle = document.createElement('script')
+            // 设置script标签的属性
+            scriptEle.src = 'http://localhost:8082/b/servlet4?fun=sayHello'
+
+            // 将script标签追加到body里
+            document.querySelector('body').appendChild(scriptEle)
+        })
+    })
+</script>
+</body>
+</html>
